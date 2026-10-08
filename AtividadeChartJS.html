@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Gráficos de Temperatura e Umidade</title>
+</head>
+
+<body>
+
+    <h1>Gráficos de Temperatura e Umidade</h1>
+
+    <h2>Gráfico de Linhas</h2>
+
+    <canvas id="graficoLinha"></canvas>
+
+    <h2>Gráfico de Barras</h2>
+
+    <canvas id="graficoBarra"></canvas>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script>
+
+        let ctxLinha = document.getElementById('graficoLinha');
+
+        new Chart(ctxLinha, {
+            type: 'line',
+
+            data: {
+                labels: ['12:00', '13:00', '14:00', '15:00', '16:00', '17:00'],
+
+                datasets: [
+                    {
+                        label: 'Temperatura',
+                        data: [30, 29, 28, 25, 22, 23],
+                        borderColor: 'rgb(255, 99, 132)',
+                        backgroundColor: 'rgb(255, 99, 132)'
+                    },
+
+                    {
+                        label: 'Umidade',
+                        data: [80, 82, 80, 85, 80, 83],
+                        borderColor: 'rgb(54, 162, 235)',
+                        backgroundColor: 'rgb(54, 162, 235)'
+                    }
+                ]
+            },
+
+            options: {
+                responsive: true
+            }
+        });
+
+
+        let ctxBarra = document.getElementById('graficoBarra');
+
+        new Chart(ctxBarra, {
+            type: 'bar',
+
+            data: {
+                labels: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho'],
+
+                datasets: [
+                    {
+                        label: 'Temperatura Média',
+                        data: [22, 24, 27, 23, 20, 18],
+                        backgroundColor: 'rgb(255, 99, 132)'
+                    },
+
+                    {
+                        label: 'Umidade Média',
+                        data: [90, 89, 93, 87, 88, 82],
+                        backgroundColor: 'rgb(54, 162, 235)'
+                    }
+                ]
+            },
+
+            options: {
+                responsive: true,
+
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+    </script>
+
+</body>
+
+</html>
